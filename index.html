@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blu | Lakeside Fine Dining in Glen Arbor, Michigan</title>
+
+  <meta
+    name="description"
+    content="Blu is a fine dining restaurant in Glen Arbor, Michigan, overlooking Lake Michigan and serving seasonal dishes, Michigan wines, and desserts."
+  />
+
+  <style>
+    :root {
+      --blue: #0b5ed7;
+      --dark-blue: #073b88;
+      --light-blue: #eaf3ff;
+      --navy: #071d35;
+      --white: #ffffff;
+      --gray: #667085;
+      --border: #d9e4f5;
+      --gold: #f4c76b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 2px solid var(--blue);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--dark-blue);
+      border-color: var(--dark-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: var(--white);
+      color: var(--blue);
+    }
+
+    .btn.secondary:hover {
+      background: var(--light-blue);
+      color: var(--dark-blue);
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(7, 29, 53, 0.72), rgba(7, 29, 53, 0.72)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 118px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin-bottom: 30px;
+      color: #eef6ff;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 44px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.05rem;
+    }
+
+    .features {
+      background: var(--light-blue);
+    }
+
+    .feature-grid,
+    .menu-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card,
+    .menu-item,
+    .info-box {
+      background: var(--white);
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(7, 29, 53, 0.06);
+    }
+
+    .card,
+    .info-box {
+      padding: 28px;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3,
+    .info-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p,
+    .menu-content p,
+    .info-box p {
+      color: var(--gray);
+    }
+
+    .menu-item {
+      overflow: hidden;
+    }
+
+    .menu-item img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .menu-content {
+      padding: 22px;
+    }
+
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .menu-top h3 {
+      font-size: 1.1rem;
+    }
+
+    .price {
+      color: var(--blue);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .about {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about img {
+      border-radius: 28px;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .about h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #d9e4f5;
+      margin-bottom: 16px;
+    }
+
+    .info {
+      background: var(--light-blue);
+    }
+
+    .info-box {
+      text-align: center;
+    }
+
+    .info-box h3 {
+      color: var(--blue);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: var(--light-blue);
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-card p {
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 22px;
+    }
+
+    .contact-list li {
+      margin-bottom: 14px;
+      color: var(--gray);
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--navy);
+    }
+
+    .map {
+      border: 0;
+      width: 100%;
+      min-height: 430px;
+      border-radius: 22px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d9e4f5;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .feature-grid,
+      .menu-grid,
+      .info-grid,
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 88px 0;
+      }
+
+      .about img {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo" aria-label="Blu home">
+        <span class="logo-mark">B</span>
+        <span>Blu</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn" href="https://www.exploretock.com/blu" target="_blank" rel="noopener">
+        Reserve
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Glen Arbor, Michigan</p>
+        <h1>Lakeside-inspired fine dining overlooking Lake Michigan.</h1>
+        <p>
+          Blu is a fine dining restaurant in Glen Arbor, Michigan, serving a seasonal
+          menu shaped by fresh, local ingredients, Michigan wines, and memorable desserts.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="https://www.exploretock.com/blu" target="_blank" rel="noopener">
+            Make a Reservation
+          </a>
+          <a class="btn secondary" href="https://www.glenarborblu.com/menu" target="_blank" rel="noopener">
+            View Official Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Seasonal, Local, Lakeside</h2>
+          <p>
+            Blu's menu changes with the season and highlights refined dishes, fresh ingredients,
+            and a view of Lake Michigan.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card">
+            <div class="card-icon">🌊</div>
+            <h3>Lake Michigan Views</h3>
+            <p>
+              Elegant fine dining in Glen Arbor with a lakeside-inspired setting overlooking Lake Michigan.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🍷</div>
+            <h3>Michigan Wine</h3>
+            <p>
+              Blu is listed as a Michigan Wine Restaurant serving a selection of Michigan wines.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🍽️</div>
+            <h3>Seasonal Menu</h3>
+            <p>
+              The menu is newly created around fresh, seasonal, and local ingredients.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Menu Items</h2>
+          <p>
+            These items and prices were taken from Blu's official menu page. Menu availability may change seasonally.
+          </p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-item">
+            <img
+              src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80"
+              alt="Fine dining plated entrée"
+            />
+            <div class="menu-content">
+              <div class="menu-top">
+                <h3>Duck Confit</h3>
+                <span class="price">$59</span>
+              </div>
+              <p>
+                Braised cabbage with blueberry tamarind sauce.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img
+              src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80"
+              alt="Gourmet olives appetizer"
+            />
+            <div class="menu-content">
+              <div class="menu-top">
+                <h3>Greek Olives</h3>
+                <span class="price">$14</span>
+              </div>
+              <p>
+                Sautéed with garlic, balsamic, rosemary, and summer savory.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img
+              src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=80"
+              alt="Crispy potato appetizer"
+            />
+            <div class="menu-content">
+              <div class="menu-top">
+                <h3>White Cheddar Tater Tots</h3>
+                <span class="price">$16</span>
+              </div>
+              <p>
+                Hand-rolled white cheddar tater tots with bacon tomato aioli.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 34px;">
+          <a class="btn" href="https://www.glenarborblu.com/menu" target="_blank" rel="noopener">
+            See Full Official Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-layout">
+        <img
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80"
+          alt="Elegant restaurant dining room"
+        />
+
+        <div>
+          <p class="eyebrow">About Blu</p>
+          <h2>Fine dining with fresh seasonal ingredients.</h2>
+          <p>
+            Blu is an elegant fine dining restaurant overlooking Lake Michigan in Glen Arbor.
+            Its menu is newly created each day, taking advantage of fresh, seasonal, and local ingredients.
+          </p>
+          <p>
+            Offerings may include fresh fish, beef, veal, duck, lamb, wild game,
+            an extensive wine list, and dessert selections.
+          </p>
+          <a class="btn" href="https://www.glenarborblu.com" target="_blank" rel="noopener">
+            Visit Official Website
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hours" class="info">
+      <div class="container">
+        <div class="section-title">
+          <h2>Visit Blu</h2>
+          <p>
+            Reservations are suggested. Operating hours change seasonally, so confirm directly before visiting.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <h3>Address</h3>
+            <p>
+              5705 S. Lake Street<br />
+              Glen Arbor, MI 49636
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>Phone</h3>
+            <p>
+              <a href="tel:+12313342530">(231) 334-2530</a>
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>Hours</h3>
+            <p>
+              Hours change seasonally.<br />
+              Call or check the official site before visiting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-layout">
+        <div class="contact-card">
+          <h3>Reserve or Contact Blu</h3>
+          <p>
+            Blu is a reservation-focused fine dining restaurant. Use the reservation link
+            or call the restaurant directly for the most accurate availability.
+          </p>
+
+          <a class="btn" href="https://www.exploretock.com/blu" target="_blank" rel="noopener">
+            Reserve on Tock
+          </a>
+
+          <ul class="contact-list">
+            <li>
+              <strong>Official Website</strong>
+              <a href="https://www.glenarborblu.com" target="_blank" rel="noopener">
+                glenarborblu.com
+              </a>
+            </li>
+            <li>
+              <strong>Official Menu</strong>
+              <a href="https://www.glenarborblu.com/menu" target="_blank" rel="noopener">
+                glenarborblu.com/menu
+              </a>
+            </li>
+            <li>
+              <strong>Phone</strong>
+              <a href="tel:+12313342530">(231) 334-2530</a>
+            </li>
+          </ul>
+        </div>
+
+        <iframe
+          class="map"
+          title="Map to Blu in Glen Arbor, Michigan"
+          src="https://www.google.com/maps?q=5705%20S.%20Lake%20Street%2C%20Glen%20Arbor%2C%20MI%2049636&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Blu. Website concept using publicly available restaurant details.</p>
+    </div>
+  </footer>
+</body>
+</html>
